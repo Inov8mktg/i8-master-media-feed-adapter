@@ -1,0 +1,11 @@
+deployment:
+  runtime: github-pages
+  repository: Inov8mktg/i8-master-media-feed-adapter
+  feed_url: https://inov8mktg.github.io/i8-master-media-feed-adapter/feed.atom
+  workflow: .github/workflows/deploy-pages.yml
+  refresh_cron_utc: "17,47 * * * *"
+  content_type: application/atom+xml
+  secrets_required: false
+  decision: >-
+    GitHub Pages is the execution-packet-authorized fallback because the available
+    Vercel Hobby plan is not authorized for this business runtime.
