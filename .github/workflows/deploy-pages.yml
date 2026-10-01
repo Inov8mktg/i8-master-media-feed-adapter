@@ -27,7 +27,12 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm test
-      - run: npm run generate
+      - name: Generate merged feed (retry once for transient upstream failures)
+        run: |
+          npm run generate || {
+            sleep 30
+            npm run generate
+          }
       - run: npm run validate
       - uses: actions/configure-pages@v5
         with:
